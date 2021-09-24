@@ -1,0 +1,300 @@
+@import "variables.scss";
+@import "mixin.scss";
+
+.informations-top {
+  background: $darkPurple;
+
+  &__container {
+    @include flex();
+    height: 30px;
+  }
+
+  &__item {
+    color: $white;
+    font-family: $firstFont;
+    text-transform: uppercase;
+    font-size: calculadora-rem(12);
+
+    strong {
+      font-weight: 700;
+    }
+
+    &::before {
+      content: "|";
+      font-size: calculadora-rem(12);
+      color: $white;
+      display: inline-block;
+
+      margin: 0 10px;
+    }
+    &:first-child {
+      &::before {
+        content: unset;
+      }
+    }
+  }
+}
+
+.header {
+  background: $purple;
+  padding: 3px 0;
+
+  &__container {
+    @include container-center();
+    @include flex(space-between);
+  }
+
+  &__logo {
+    font-size: calculadora-rem(48);
+    font-family: $secondFont;
+    color: $white;
+    text-transform: uppercase;
+  }
+
+  &__menu {
+    @include flex(space-between);
+    flex: 1;
+    padding: 0 30px;
+
+    &--items {
+      display: none;
+      position: absolute;
+      top: 100%;
+
+      min-width: 200px;
+      max-height: 300px;
+
+      background: $white;
+      flex-direction: column;
+
+      font-size: 0;
+      border-top: 6px solid $darkPurple;
+
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+
+      overflow-x: hidden;
+
+      &::-webkit-scrollbar-thumb {
+        background: $gray;
+      }
+      &::-webkit-scrollbar-track {
+        scrollbar-color: $gray $purple;
+      }
+
+      &::-webkit-scrollbar {
+        width: 10px;
+        background: $purple;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  &__menu-wrapper {
+    position: relative;
+    &:hover {
+      .header__menu--items {
+        display: flex;
+      }
+    }
+
+    &:nth-child(6) {
+      .header__menu--items {
+        background-color: $darkPurple;
+      }
+
+      .header__menu-category {
+        color: $white;
+        font-weight: 400;
+      }
+
+      .header__menu--sub-item {
+        a {
+          color: $darkGray;
+        }
+      }
+    }
+  }
+
+  &__menu-department {
+    display: flex;
+    height: 100%;
+
+    padding: 30px 5px;
+
+    text-decoration: none;
+    font-size: calculadora-rem(14);
+    font-weight: bold;
+    color: $white;
+    text-transform: uppercase;
+    align-items: center;
+    font-family: "Open Sans", sans-serif;
+    transition-duration: 300ms;
+
+    &:hover {
+      color: $strongPurple;
+
+      .header__menu--items {
+        display: flex;
+      }
+
+      ~ .header__menu--items {
+        display: flex;
+      }
+    }
+  }
+
+  &__menu-category {
+    display: flex;
+    height: 100%;
+    padding: 10px;
+
+    text-decoration: none;
+    font-size: calculadora-rem(14);
+    font-weight: bold;
+    color: $darkGray;
+    align-items: center;
+    font-family: "Open Sans", sans-serif;
+
+    transition-duration: 300ms;
+    &:hover {
+      background-color: $gray;
+    }
+  }
+
+  &__menu--sub-item {
+    display: none;
+    position: absolute;
+    background: $white;
+    flex-direction: column;
+    top: -6px;
+    left: 100%;
+    width: 100%;
+
+    border-top: 6px solid $darkPurple;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+
+    .header__menu-category {
+    }
+  }
+
+  &__menu-wrapper-items {
+    &:hover {
+      .header__menu--sub-item {
+        display: flex;
+      }
+    }
+  }
+
+  &__links {
+    @include flex(space-between);
+    width: 15%;
+  }
+}
+.differentials {
+  background-color: $darkPurple;
+  padding: 7px;
+  overflow: hidden;
+
+  &__container {
+    @include container-center();
+
+    @include flex(space-evenly);
+
+    padding: 0 10px;
+
+    width: 100%;
+  }
+
+  &__block {
+    @include flex(space-between);
+    max-width: 300px;
+    position: relative;
+    padding: 9px;
+  }
+
+  &__icon {
+    margin-right: 15px;
+  }
+
+  &__description {
+    @include flex(center, flex-start);
+    flex-direction: column;
+
+    max-width: 240px;
+
+    h3 {
+      font-weight: 700;
+      color: $white;
+      margin-bottom: 10px;
+    }
+
+    span {
+      font-size: calculadora-rem(12);
+      color: $white;
+    }
+  }
+}
+
+footer {
+  background: url("../assets/background-footer.png") no-repeat;
+  background-size: 100% 100%;
+
+  height: 621px;
+}
+
+.newsletter {
+  @include flex();
+
+  margin-bottom: 200px;
+
+  color: $white;
+
+  &__content {
+    @include flex();
+    flex-direction: column;
+  }
+
+  &__form {
+    @include flex();
+  }
+
+  &__information {
+    @include flex();
+  }
+}
+
+.footer__links {
+  h3 {
+    font-size: calculadora-rem(16);
+    color: $white;
+    text-transform: uppercase;
+  }
+}
+
+.footer__links-container {
+  @include container-center();
+  @include flex(space-between, flex-start);
+}
+
+.footer__links-title {
+  font-size: calculadora-rem(16);
+  color: $white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+}
+
+.footer__links-link {
+  text-decoration: none;
+  font-size: calculadora-rem(14);
+  color: $white;
+  font-family: "Open Sans", sans-serif;
+  padding: 10px 0;
+
+  display: inline-block;
+  transition-duration: 300ms;
+
+  &:hover {
+    color: darken($white, 30%);
+  }
+}
