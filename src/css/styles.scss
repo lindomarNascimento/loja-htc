@@ -264,16 +264,15 @@ footer {
 }
 
 .footer__links {
-  h3 {
-    font-size: calculadora-rem(16);
-    color: $white;
-    text-transform: uppercase;
-  }
+  @include container-center();
 }
 
 .footer__links-container {
-  @include container-center();
   @include flex(space-between, flex-start);
+
+  @media (max-width: 1124px) {
+    flex-direction: column;
+  }
 }
 
 .footer__links-title {
@@ -282,6 +281,11 @@ footer {
   font-weight: bold;
   text-transform: uppercase;
   font-family: "Open Sans", sans-serif;
+
+  @media (max-width: 1124px) {
+    padding: 5px 0;
+    margin: 10px 0;
+  }
 }
 
 .footer__links-link {
@@ -296,5 +300,27 @@ footer {
 
   &:hover {
     color: darken($white, 30%);
+  }
+}
+
+.footer__links-list {
+  @media (max-width: 1124px) {
+    // .footer__links-link {
+    //   display: none;
+    // }
+    // &.showMenu {
+    //   .footer__links-link {
+    //     display: flex;
+    //   }
+    // }
+
+    max-height: 0;
+    overflow: hidden;
+
+    transition-duration: 300ms;
+    &.showMenu {
+      max-height: 100%;
+      overflow: visible;
+    }
   }
 }
